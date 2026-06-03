@@ -77,6 +77,6 @@ flutter test
 SpendMind features a built-in Developer Tools panel hidden from standard users.
 
 1.  Navigate to **Settings**.
-2.  Set the **Profile Email** to `gamerchetan323@gmail.com` (or any email registered in the allowed list).
+2.  Set the **Profile Email** to `your-email-id@gmail.com` (or any email registered in the allowed list).
 3.  A **Developer Control Panel** will unlock in Settings, and a **TEST MODE** status badge will display on the Dashboard.
 4.  Use the controls to generate fake transactions, broadcast simulated banking SMS texts, seed bulk mock data, and reset/clear all test transactions dynamically.
