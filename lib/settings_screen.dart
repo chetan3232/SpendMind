@@ -1,3 +1,4 @@
+import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -71,7 +72,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       notifGranted = await _platform.invokeMethod<bool>('hasNotificationPermission') ?? false;
       batteryIgnored = await _platform.invokeMethod<bool>('isIgnoringBatteryOptimizations') ?? false;
     } catch (e) {
-      print('Failed checking permissions: $e');
+      developer.log('Failed checking permissions', error: e);
     }
 
     setState(() {
@@ -292,7 +293,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: AppTheme.vibrantPurple.withOpacity(0.3),
+                        color: AppTheme.vibrantPurple.withValues(alpha: 0.3),
                         blurRadius: 15,
                         offset: const Offset(0, 5),
                       )
@@ -345,10 +346,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         prefixIcon: Icon(icon, color: AppTheme.vibrantPurple),
         suffixIcon: suffixIcon,
         filled: true,
-        fillColor: Colors.black.withOpacity(0.2),
+        fillColor: Colors.black.withValues(alpha: 0.2),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.white.withOpacity(0.05)),
+          borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.05)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -388,7 +389,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ElevatedButton(
             onPressed: onPressed,
             style: ElevatedButton.styleFrom(
-              backgroundColor: isGranted ? AppTheme.emeraldGreen.withOpacity(0.15) : AppTheme.vibrantPurple.withOpacity(0.15),
+              backgroundColor: isGranted ? AppTheme.emeraldGreen.withValues(alpha: 0.15) : AppTheme.vibrantPurple.withValues(alpha: 0.15),
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -453,7 +454,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: AppTheme.coralRed.withOpacity(0.15),
+                color: AppTheme.coralRed.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(color: AppTheme.coralRed, width: 0.8),
               ),
@@ -620,7 +621,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       icon: const Icon(Icons.grid_view_rounded, size: 16, color: Colors.white),
                       label: const Text('Seed 15 Test Tx', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppTheme.vibrantPurple.withOpacity(0.8),
+                        backgroundColor: AppTheme.vibrantPurple.withValues(alpha: 0.8),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                       ),
                     ),
@@ -704,7 +705,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: hive.developerEmails.map((email) {
                   final isPrimary = email == 'gamerchetan323@gmail.com';
                   return Chip(
-                    backgroundColor: Colors.black.withOpacity(0.3),
+                    backgroundColor: Colors.black.withValues(alpha: 0.3),
                     label: Text(email, style: const TextStyle(fontSize: 11, color: AppTheme.textPrimary)),
                     deleteIcon: isPrimary ? null : const Icon(Icons.close, size: 14, color: AppTheme.coralRed),
                     onDeleted: isPrimary ? null : () {
@@ -767,11 +768,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
       labelText: label,
       labelStyle: const TextStyle(color: AppTheme.textSecondary, fontSize: 12),
       filled: true,
-      fillColor: Colors.black.withOpacity(0.2),
+      fillColor: Colors.black.withValues(alpha: 0.2),
       contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: Colors.white.withOpacity(0.05)),
+        borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.05)),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
@@ -789,11 +790,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return ActionChip(
       label: Text(label),
       onPressed: () => _generateFakeNotification(hive, text, app),
-      backgroundColor: AppTheme.cardColor.withOpacity(0.4),
+      backgroundColor: AppTheme.cardColor.withValues(alpha: 0.4),
       labelStyle: const TextStyle(color: AppTheme.emeraldGreen, fontSize: 11, fontWeight: FontWeight.bold),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
-        side: BorderSide(color: AppTheme.emeraldGreen.withOpacity(0.5)),
+        side: BorderSide(color: AppTheme.emeraldGreen.withValues(alpha: 0.5)),
       ),
     );
   }

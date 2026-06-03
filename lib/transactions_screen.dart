@@ -57,7 +57,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
               backgroundColor: AppTheme.cardColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
-                side: BorderSide(color: Colors.white.withOpacity(0.08)),
+                side: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
               ),
               title: const Text(
                 'Add Transaction',
@@ -78,11 +78,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                               padding: const EdgeInsets.symmetric(vertical: 10),
                               decoration: BoxDecoration(
                                 color: _selectedType == 'expense' 
-                                    ? AppTheme.coralRed.withOpacity(0.15) 
+                                    ? AppTheme.coralRed.withValues(alpha: 0.15) 
                                     : Colors.transparent,
                                 borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
-                                  color: _selectedType == 'expense' ? AppTheme.coralRed : Colors.white.withOpacity(0.05),
+                                  color: _selectedType == 'expense' ? AppTheme.coralRed : Colors.white.withValues(alpha: 0.05),
                                 ),
                               ),
                               child: Text(
@@ -104,11 +104,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                               padding: const EdgeInsets.symmetric(vertical: 10),
                               decoration: BoxDecoration(
                                 color: _selectedType == 'income' 
-                                    ? AppTheme.emeraldGreen.withOpacity(0.15) 
+                                    ? AppTheme.emeraldGreen.withValues(alpha: 0.15) 
                                     : Colors.transparent,
                                 borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
-                                  color: _selectedType == 'income' ? AppTheme.emeraldGreen : Colors.white.withOpacity(0.05),
+                                  color: _selectedType == 'income' ? AppTheme.emeraldGreen : Colors.white.withValues(alpha: 0.05),
                                 ),
                               ),
                               child: Text(
@@ -153,10 +153,10 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                           labelStyle: const TextStyle(color: AppTheme.textSecondary),
                           prefixIcon: const Icon(Icons.grid_view, color: AppTheme.vibrantPurple),
                           filled: true,
-                          fillColor: Colors.black.withOpacity(0.2),
+                           fillColor: Colors.black.withValues(alpha: 0.2),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: Colors.white.withOpacity(0.05)),
+                            borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.05)),
                           ),
                         ),
                         items: _categories.map((c) {
@@ -228,10 +228,10 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
         labelStyle: const TextStyle(color: AppTheme.textSecondary),
         prefixIcon: Icon(icon, color: AppTheme.vibrantPurple, size: 20),
         filled: true,
-        fillColor: Colors.black.withOpacity(0.2),
+        fillColor: Colors.black.withValues(alpha: 0.2),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.white.withOpacity(0.05)),
+          borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.05)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
@@ -315,10 +315,10 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                         hintStyle: const TextStyle(color: AppTheme.textSecondary, fontSize: 14),
                         prefixIcon: const Icon(Icons.search, color: AppTheme.textSecondary),
                         filled: true,
-                        fillColor: AppTheme.cardColor.withOpacity(0.4),
+                        fillColor: AppTheme.cardColor.withValues(alpha: 0.4),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(color: Colors.white.withOpacity(0.08)),
+                          borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
@@ -349,7 +349,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.receipt_long, size: 50, color: AppTheme.textSecondary.withOpacity(0.5)),
+                                  Icon(Icons.receipt_long, size: 50, color: AppTheme.textSecondary.withValues(alpha: 0.5)),
                                   const SizedBox(height: 10),
                                   Text(
                                     'No transactions found',
@@ -379,7 +379,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                       alignment: Alignment.centerRight,
                                       padding: const EdgeInsets.only(right: 20),
                                       decoration: BoxDecoration(
-                                        color: AppTheme.coralRed.withOpacity(0.8),
+                                        color: AppTheme.coralRed.withValues(alpha: 0.8),
                                         borderRadius: BorderRadius.circular(16),
                                       ),
                                       child: const Icon(Icons.delete, color: Colors.white),
@@ -395,7 +395,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                             radius: 20,
                                             backgroundColor: (isExpense 
                                                 ? AppTheme.coralRed 
-                                                : AppTheme.emeraldGreen).withOpacity(0.1),
+                                                : AppTheme.emeraldGreen).withValues(alpha: 0.1),
                                             child: Icon(
                                               isExpense 
                                                   ? _getCategoryIcon(tx.category) 
@@ -428,7 +428,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                                        Container(
                                                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                                          decoration: BoxDecoration(
-                                                           color: AppTheme.coralRed.withOpacity(0.15),
+                                                           color: AppTheme.coralRed.withValues(alpha: 0.15),
                                                            borderRadius: BorderRadius.circular(4),
                                                            border: Border.all(color: AppTheme.coralRed, width: 0.6),
                                                          ),
@@ -454,7 +454,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                                     Container(
                                                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                                       decoration: BoxDecoration(
-                                                        color: Colors.white.withOpacity(0.05),
+                                                        color: Colors.white.withValues(alpha: 0.05),
                                                         borderRadius: BorderRadius.circular(4),
                                                       ),
                                                       child: Text(
@@ -521,8 +521,8 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
             _selectedCategoryFilter = label;
           });
         },
-        selectedColor: AppTheme.vibrantPurple.withOpacity(0.2),
-        backgroundColor: AppTheme.cardColor.withOpacity(0.4),
+        selectedColor: AppTheme.vibrantPurple.withValues(alpha: 0.2),
+        backgroundColor: AppTheme.cardColor.withValues(alpha: 0.4),
         checkmarkColor: AppTheme.vibrantPurple,
         labelStyle: TextStyle(
           color: isSelected ? AppTheme.vibrantPurple : AppTheme.textSecondary,
@@ -532,7 +532,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
           side: BorderSide(
-            color: isSelected ? AppTheme.vibrantPurple : Colors.white.withOpacity(0.05),
+            color: isSelected ? AppTheme.vibrantPurple : Colors.white.withValues(alpha: 0.05),
           ),
         ),
       ),

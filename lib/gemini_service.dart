@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer' as developer;
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:spendmind/models.dart';
 
@@ -51,7 +52,7 @@ class GeminiService {
       
       return jsonDecode(cleanJson) as Map<String, dynamic>;
     } catch (e) {
-      print('Gemini categorizer error: $e');
+      developer.log('Gemini categorizer error', error: e);
       return null;
     }
   }
@@ -200,7 +201,7 @@ class GeminiService {
           
       return jsonDecode(cleanJson) as Map<String, dynamic>;
     } catch (e) {
-      print('Gemini simulator error: $e');
+      developer.log('Gemini simulator error', error: e);
       return mockFallback;
     }
   }

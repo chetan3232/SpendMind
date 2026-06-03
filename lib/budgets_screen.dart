@@ -30,7 +30,7 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
           backgroundColor: AppTheme.cardColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            side: BorderSide(color: Colors.white.withOpacity(0.08)),
+            side: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
           ),
           title: Text(
             'Adjust ${budget.category} Budget',
@@ -54,10 +54,10 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
                   labelStyle: const TextStyle(color: AppTheme.textSecondary),
                   prefixIcon: const Icon(Icons.currency_rupee, color: AppTheme.vibrantPurple),
                   filled: true,
-                  fillColor: Colors.black.withOpacity(0.2),
+                  fillColor: Colors.black.withValues(alpha: 0.2),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.white.withOpacity(0.05)),
+                    borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.05)),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -211,7 +211,7 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
                                           children: [
                                             CircleAvatar(
                                               radius: 18,
-                                              backgroundColor: progressColor.withOpacity(0.15),
+                                              backgroundColor: progressColor.withValues(alpha: 0.15),
                                               child: Icon(
                                                 _getCategoryIcon(budget.category),
                                                 size: 18,
@@ -270,7 +270,7 @@ class _BudgetsScreenState extends State<BudgetsScreen> {
                                       borderRadius: BorderRadius.circular(4),
                                       child: LinearProgressIndicator(
                                         value: percent > 1.0 ? 1.0 : percent,
-                                        backgroundColor: Colors.white.withOpacity(0.05),
+                                        backgroundColor: Colors.white.withValues(alpha: 0.05),
                                         color: progressColor,
                                         minHeight: 8,
                                       ),

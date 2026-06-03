@@ -39,7 +39,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 decoration: BoxDecoration(
                   color: AppTheme.cardColor,
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-                  border: Border.all(color: Colors.white.withOpacity(0.08)),
+                  border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
                 ),
                 padding: const EdgeInsets.all(24),
                 child: Column(
@@ -71,9 +71,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   selectedType = resolved['type']!;
                                 }
                               } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('AI categorization failed or API key not set.')),
-                                );
+                                if (context.mounted) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('AI categorization failed or API key not set.')),
+                                  );
+                                }
                               }
                               setModalState(() => _isResolvingAi = false);
                             },
@@ -86,7 +88,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.2),
+                        color: Colors.black.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Column(
@@ -110,9 +112,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               alignment: Alignment.center,
                               padding: const EdgeInsets.symmetric(vertical: 8),
                               decoration: BoxDecoration(
-                                color: selectedType == 'expense' ? AppTheme.coralRed.withOpacity(0.15) : Colors.transparent,
+                                color: selectedType == 'expense' ? AppTheme.coralRed.withValues(alpha: 0.15) : Colors.transparent,
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: selectedType == 'expense' ? AppTheme.coralRed : Colors.white.withOpacity(0.05)),
+                                border: Border.all(color: selectedType == 'expense' ? AppTheme.coralRed : Colors.white.withValues(alpha: 0.05)),
                               ),
                               child: Text('Expense', style: TextStyle(color: selectedType == 'expense' ? AppTheme.coralRed : AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 13)),
                             ),
@@ -126,9 +128,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               alignment: Alignment.center,
                               padding: const EdgeInsets.symmetric(vertical: 8),
                               decoration: BoxDecoration(
-                                color: selectedType == 'income' ? AppTheme.emeraldGreen.withOpacity(0.15) : Colors.transparent,
+                                color: selectedType == 'income' ? AppTheme.emeraldGreen.withValues(alpha: 0.15) : Colors.transparent,
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: selectedType == 'income' ? AppTheme.emeraldGreen : Colors.white.withOpacity(0.05)),
+                                border: Border.all(color: selectedType == 'income' ? AppTheme.emeraldGreen : Colors.white.withValues(alpha: 0.05)),
                               ),
                               child: Text('Income', style: TextStyle(color: selectedType == 'income' ? AppTheme.emeraldGreen : AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 13)),
                             ),
@@ -239,10 +241,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       labelStyle: const TextStyle(color: AppTheme.textSecondary),
       prefixIcon: Icon(icon, color: AppTheme.vibrantPurple, size: 20),
       filled: true,
-      fillColor: Colors.black.withOpacity(0.2),
+      fillColor: Colors.black.withValues(alpha: 0.2),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: Colors.white.withOpacity(0.05)),
+        borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.05)),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -317,7 +319,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                 decoration: BoxDecoration(
-                                  color: AppTheme.coralRed.withOpacity(0.15),
+                                  color: AppTheme.coralRed.withValues(alpha: 0.15),
                                   borderRadius: BorderRadius.circular(12),
                                   border: Border.all(color: AppTheme.coralRed, width: 0.8),
                                 ),
@@ -334,7 +336,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ],
                             CircleAvatar(
                               radius: 20,
-                              backgroundColor: AppTheme.vibrantPurple.withOpacity(0.15),
+                              backgroundColor: AppTheme.vibrantPurple.withValues(alpha: 0.15),
                               child: const Icon(Icons.account_balance_wallet, color: AppTheme.vibrantPurple),
                             ),
                           ],
@@ -369,7 +371,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   onChanged: (val) {
                                     hive.setIncludeTestDataInAnalytics(val);
                                   },
-                                  activeColor: AppTheme.emeraldGreen,
+                                  activeThumbColor: AppTheme.emeraldGreen,
                                   inactiveThumbColor: AppTheme.textSecondary,
                                   inactiveTrackColor: Colors.white10,
                                 ),
@@ -397,7 +399,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     height: 80,
                                     child: CircularProgressIndicator(
                                       value: savingsPercentage,
-                                      backgroundColor: Colors.white.withOpacity(0.05),
+                                      backgroundColor: Colors.white.withValues(alpha: 0.05),
                                       color: AppTheme.emeraldGreen,
                                       strokeWidth: 8,
                                     ),
@@ -595,7 +597,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         Container(
                                           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                           decoration: BoxDecoration(
-                                            color: AppTheme.coralRed.withOpacity(0.15),
+                                            color: AppTheme.coralRed.withValues(alpha: 0.15),
                                             borderRadius: BorderRadius.circular(4),
                                             border: Border.all(color: AppTheme.coralRed, width: 0.6),
                                           ),
@@ -620,7 +622,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ),
                           ),
                         );
-                      }).toList(),
+                      }),
                   ],
                 ),
               );

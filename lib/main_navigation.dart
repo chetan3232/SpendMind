@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -60,6 +61,7 @@ class _MainNavigationState extends State<MainNavigation> with WidgetsBindingObse
           await _platform.invokeMethod<List<dynamic>>('getPendingTransactions');
       
       if (pendingList == null || pendingList.isEmpty) return;
+      if (!mounted) return;
 
       final hive = Provider.of<HiveService>(context, listen: false);
       int successCount = 0;
@@ -95,7 +97,7 @@ class _MainNavigationState extends State<MainNavigation> with WidgetsBindingObse
         _showSyncFeedback(successCount, pendingCount);
       }
     } catch (e) {
-      print('Sync transactions error: $e');
+      developer.log('Sync transactions error', error: e);
     }
   }
 

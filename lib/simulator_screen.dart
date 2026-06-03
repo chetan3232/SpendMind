@@ -160,9 +160,9 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                             SliderTheme(
                               data: SliderTheme.of(context).copyWith(
                                 activeTrackColor: AppTheme.vibrantPurple,
-                                inactiveTrackColor: Colors.white.withOpacity(0.05),
+                                inactiveTrackColor: Colors.white.withValues(alpha: 0.05),
                                 thumbColor: AppTheme.vibrantPurple,
-                                overlayColor: AppTheme.vibrantPurple.withOpacity(0.2),
+                                overlayColor: AppTheme.vibrantPurple.withValues(alpha: 0.2),
                               ),
                               child: Slider(
                                 value: val,
@@ -206,10 +206,10 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                           hintText: 'e.g., I want to buy a new gym membership for ₹1500/mo and move to a cheaper flat (-₹4000/mo)...',
                           hintStyle: const TextStyle(color: AppTheme.textSecondary, fontSize: 13),
                           filled: true,
-                          fillColor: Colors.black.withOpacity(0.2),
+                          fillColor: Colors.black.withValues(alpha: 0.2),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(color: Colors.white.withOpacity(0.05)),
+                            borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.05)),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -315,7 +315,7 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                             show: true,
                             drawVerticalLine: false,
                             getDrawingHorizontalLine: (value) => FlLine(
-                              color: Colors.white.withOpacity(0.04),
+                              color: Colors.white.withValues(alpha: 0.04),
                               strokeWidth: 1,
                             ),
                           ),
@@ -351,7 +351,7 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                               dotData: const FlDotData(show: false),
                               belowBarData: BarAreaData(
                                 show: true,
-                                color: AppTheme.mutedBlue.withOpacity(0.05),
+                                color: AppTheme.mutedBlue.withValues(alpha: 0.05),
                               ),
                             ),
                             // Simulated Path Line
@@ -364,7 +364,7 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                               dotData: const FlDotData(show: false),
                               belowBarData: BarAreaData(
                                 show: true,
-                                color: AppTheme.vibrantPurple.withOpacity(0.1),
+                                color: AppTheme.vibrantPurple.withValues(alpha: 0.1),
                               ),
                             ),
                           ],
@@ -414,7 +414,7 @@ class _SimulatorScreenState extends State<SimulatorScreen> {
                         ],
                       ),
                     ),
-                  )).toList(),
+                  )),
                 ],
                 const SizedBox(height: 30),
               ],

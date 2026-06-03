@@ -67,10 +67,10 @@ class AppTheme {
     double opacity = 0.4,
   }) {
     return BoxDecoration(
-      color: color.withOpacity(opacity),
+      color: color.withValues(alpha: opacity),
       borderRadius: borderRadius is double ? BorderRadius.circular(borderRadius) : borderRadius as BorderRadiusGeometry?,
       border: Border.all(
-        color: Colors.white.withOpacity(0.08),
+        color: Colors.white.withValues(alpha: 0.08),
         width: 1.0,
       ),
     );

@@ -180,7 +180,7 @@ class _CoachScreenState extends State<CoachScreen> {
                             const SizedBox(width: 10),
                             Text(
                               'Coach is thinking...',
-                              style: TextStyle(color: AppTheme.vibrantPurple.withOpacity(0.8), fontSize: 12),
+                              style: TextStyle(color: AppTheme.vibrantPurple.withValues(alpha: 0.8), fontSize: 12),
                             ),
                           ],
                         ),
@@ -205,11 +205,11 @@ class _CoachScreenState extends State<CoachScreen> {
                         child: ActionChip(
                           label: Text(suggestion),
                           onPressed: () => _sendMessage(suggestion),
-                          backgroundColor: AppTheme.cardColor.withOpacity(0.3),
+                          backgroundColor: AppTheme.cardColor.withValues(alpha: 0.3),
                           labelStyle: const TextStyle(color: AppTheme.textPrimary, fontSize: 12),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
-                            side: BorderSide(color: Colors.white.withOpacity(0.05)),
+                            side: BorderSide(color: Colors.white.withValues(alpha: 0.05)),
                           ),
                         ),
                       );
@@ -280,7 +280,7 @@ class _CoachScreenState extends State<CoachScreen> {
             Container(
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: AppTheme.vibrantPurple.withOpacity(0.1),
+                color: AppTheme.vibrantPurple.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(Icons.chat_bubble_outline, size: 40, color: AppTheme.vibrantPurple),
@@ -344,7 +344,7 @@ class _CoachScreenState extends State<CoachScreen> {
                   Text(
                     DateFormat('hh:mm a').format(message.timestamp),
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.6), 
+                      color: AppTheme.textSecondary.withValues(alpha: 0.6), 
                       fontSize: 10,
                     ),
                   ),
@@ -369,7 +369,7 @@ class _CoachScreenState extends State<CoachScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.3),
+        color: Colors.black.withValues(alpha: 0.3),
         border: const Border(top: BorderSide(color: AppTheme.borderColor)),
       ),
       child: Row(
@@ -382,11 +382,11 @@ class _CoachScreenState extends State<CoachScreen> {
                 hintText: 'Type your message...',
                 hintStyle: const TextStyle(color: AppTheme.textSecondary, fontSize: 14),
                 filled: true,
-                fillColor: AppTheme.cardColor.withOpacity(0.3),
+                fillColor: AppTheme.cardColor.withValues(alpha: 0.3),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(24),
-                  borderSide: BorderSide(color: Colors.white.withOpacity(0.08)),
+                  borderSide: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(24),
